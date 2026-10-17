@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ritorno | Italian restaurant at Trafalgar and Dundas, Oakville</title>
+<meta name="description" content="Julia Hanna's family Italian restaurant in Oakville since 2008. Nonna's gnocchi, pasta and pizza made from scratch, the Nonna Wall, and a nut-free kitchen. 261 Oak Walk Drive, Unit 8. 905-257-5881.">
+<meta name="theme-color" content="#f1e6d2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1e1510" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Ritorno, Oakville">
+<meta property="og:description" content="Family is whoever sits around the table. Homemade Italian at Trafalgar and Dundas since 2008.">
+<meta property="og:image" content="assets/julia-and-mother.jpg">
+<link rel="icon" href="assets/icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500..800;1,500..700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+<link rel="preload" as="image" href="assets/frame-gilt.jpg">
+<style>
+/* ---------- tokens ----------
+   Colours are taken from the room: plaster walls, the red tile and red script of the Nonna Wall,
+   walnut tables, the espresso of the logo.
+   Textures are photographs, not drawings: two 16th-century Veneto cassetta frames from the Met's
+   open-access collection (CC0), Barcelona Pavilion travertine and a trowelled plaster wall (both CC0).
+   Shape rule: frames, photos, panels and the menu index are square. Buttons are full pills. */
+:root{
+  --wall:#f1e6d2;
+  --wall-2:#e7d8bd;
+  --paper:#fbf6ec;
+  --ink:#2b1d16;
+  --ink-2:#5f4a39;
+  --line:rgba(43,29,22,.16);
+  --accent:#a8301f;          /* the red of "Nonna Wall" on the wall itself */
+  --accent-hi:#8f2618;
+  --on-accent:#fbf6ec;
+  --walnut:#3a2418;
+  --rail:#4a2e1c;
+  --stone:#cdb58f;
+  --shadow:43,29,22;
+  --display:"Alegreya",Georgia,serif;
+  --body:"Alegreya Sans",system-ui,sans-serif;
+  --plaster:url("assets/plaster.jpg");
+  --ease:cubic-bezier(.16,1,.3,1);
+  --ease-hang:cubic-bezier(.34,1.32,.5,1);
+  --nav-h:64px;
+  --gut:max(16px,calc((100vw - 1360px)/2));
+}
+@media (prefers-color-scheme:dark){
+  /* evening: the room after the lights go down */
+  :root{
+    --wall:#1e1510;
+    --wall-2:#2a1d15;
+    --paper:#36271d;
+    --ink:#f1e6d2;
+    --ink-2:#c4b29b;
+    --line:rgba(241,230,210,.16);
+    --accent:#e8735c;
+    --accent-hi:#f08a74;
+    --on-accent:#1e1510;
+    --rail:#120c09;
+    --stone:#5a4632;
+    --shadow:0,0,0;
+    --plaster:url("assets/plaster-soft.jpg");
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--nav-h) + 24px)}
+body{background:var(--wall) var(--plaster) 0 0/900px auto;background-blend-mode:soft-light;color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55;overflow-x:hidden;text-rendering:optimizeLegibility}
+b,dd,.hours,.btn,.contact,.facts,.status,.now,.fbot,.lines,.dish small{font-variant-numeric:lining-nums tabular-nums}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1;letter-spacing:-.012em;text-wrap:balance}
+h2{font-size:clamp(42px,5.6vw,80px)}
+p{text-wrap:pretty}
+.wrap{width:min(1360px,100% - 32px);margin-inline:auto}
+section{padding-block:clamp(88px,11vw,152px)}
+.lede{color:var(--ink-2);font-size:clamp(18px,1.5vw,21px);max-width:52ch;margin-top:22px}
+.skip{position:absolute;left:12px;top:-60px;z-index:80;background:var(--ink);color:var(--wall);padding:10px 16px;border-radius:999px}
+.skip:focus{top:12px}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:14px;padding:8px 8px 8px 24px;border-radius:999px;background:var(--accent);color:var(--on-accent);font-weight:600;font-size:17px;white-space:nowrap;transition:background .3s var(--ease),transform .3s var(--ease)}
+.btn .ic{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(251,246,236,.16);font-size:21px;transition:transform .4s var(--ease)}
+.btn:hover{background:var(--accent-hi)}
+.btn:hover .ic{transform:translateX(2px) rotate(-8deg) scale(1.05)}
+.btn:active{transform:scale(.98)}
+.btn.sm{padding:5px 5px 5px 18px;font-size:16px;gap:10px}
+.btn.sm .ic{width:34px;height:34px;font-size:19px}
+.btn.quiet{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.quiet .ic{background:var(--ink);color:var(--wall)}
+.btn.quiet:hover{background:var(--ink);color:var(--wall)}
+.btn.quiet:hover .ic{background:var(--wall);color:var(--ink)}
+.link{display:inline-flex;align-items:center;gap:8px;font-weight:600;border-bottom:1.5px solid currentColor;padding-bottom:2px;transition:color .25s var(--ease)}
+.link i{font-size:19px;transition:transform .35s var(--ease)}
+.link:hover{color:var(--accent)}
+.link:hover i{transform:translateX(4px)}
+
+/* ---------- picture frames ----------
+   border-image cuts a photo of a real frame into nine pieces: corners stay as photographed,
+   the sides repeat to fit whatever photo sits inside. */
+.frame{--r:0deg;--bw:clamp(14px,1.9vw,26px);position:relative;display:block;margin:0;transform:rotate(var(--r));background:#2b1d16;
+  border:var(--bw) solid #8a6a35;border-image:url("assets/frame-gilt.jpg") 146 150 151 150 / var(--bw) round;
+  box-shadow:0 28px 36px -24px rgba(var(--shadow),.55),0 6px 10px -6px rgba(var(--shadow),.35)}
+.frame img{width:100%;height:auto;aspect-ratio:var(--ar,4/3);object-fit:cover;background:#d9c9ad}
+.f-walnut{--bw:clamp(18px,2.4vw,32px);border-color:#3a2b1c;border-image-source:url("assets/frame-walnut.jpg");border-image-slice:189 188 193 192}
+figcaption{font-style:italic;color:var(--ink-2);font-size:16px;margin-top:14px;line-height:1.4}
+@media (max-width:760px){.frame{--bw:12px}.f-walnut{--bw:15px}}
+
+/* ---------- nav: a plaque hung just below the top edge ---------- */
+.nav{position:fixed;z-index:50;top:10px;left:10px;right:10px;height:var(--nav-h);border-radius:999px;display:flex;align-items:center;gap:28px;padding:0 10px 0 22px;transition:background .4s var(--ease),box-shadow .4s var(--ease)}
+.nav.solid{background:color-mix(in srgb,var(--wall) 88%,transparent);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);box-shadow:0 0 0 1px var(--line),0 14px 30px -18px rgba(var(--shadow),.5)}
+.brand{flex:none;display:block}
+.brand img{height:32px;width:auto}
+.logo-cream{display:none}
+@media (prefers-color-scheme:dark){.logo-ink{display:none}.logo-cream{display:block}}
+.menu{display:flex;gap:4px}
+.menu a{padding:8px 14px;border-radius:999px;font-weight:500;font-size:16px;transition:background .25s var(--ease)}
+.menu a:hover{background:color-mix(in srgb,var(--ink) 8%,transparent)}
+.tools{margin-left:auto;display:flex;align-items:center;gap:14px}
+.status{font-size:15px;color:var(--ink-2);white-space:nowrap}
+.status b{color:var(--ink);font-weight:600}
+.icon-btn{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-size:24px;transition:background .25s var(--ease)}
+.icon-btn:hover{background:color-mix(in srgb,var(--ink) 8%,transparent)}
+.icon-btn.call{background:var(--accent);color:var(--on-accent)}
+.burger,.icon-btn.call{display:none}
+@media (max-width:1180px){.nav .status{display:none}}
+@media (max-width:980px){.menu,.tools .btn{display:none}.burger,.icon-btn.call{display:grid}.nav{gap:8px;padding:0 8px 0 18px}.tools{gap:6px}}
+@media (max-width:420px){.brand img{height:28px}}
+
+.drawer{position:fixed;inset:0;z-index:60;background:var(--wall);display:grid;grid-template-rows:auto 1fr auto;visibility:hidden;opacity:0;transition:opacity .35s var(--ease),visibility 0s .35s}
+.drawer.open{visibility:visible;opacity:1;transition:opacity .35s var(--ease)}
+.drawer header{height:calc(var(--nav-h) + 20px);display:flex;align-items:center;justify-content:space-between;padding:10px 18px 0 28px}
+.drawer nav{display:flex;flex-direction:column;padding:12px 28px}
+.drawer nav a{font-family:var(--display);font-weight:800;font-size:52px;line-height:1.05;padding:8px 0;opacity:0;transform:translateY(24px);transition:opacity .5s var(--ease),transform .6s var(--ease)}
+.drawer.open nav a{opacity:1;transform:none}
+.drawer.open nav a:nth-child(2){transition-delay:.04s}.drawer.open nav a:nth-child(3){transition-delay:.08s}.drawer.open nav a:nth-child(4){transition-delay:.12s}.drawer.open nav a:nth-child(5){transition-delay:.16s}
+.drawer footer{padding:22px 28px 30px;display:grid;gap:14px;color:var(--ink-2)}
+.drawer footer .btn{justify-content:space-between}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:max(100svh,620px);padding:calc(var(--nav-h) + clamp(18px,5vh,52px)) 0 0;display:flex;flex-direction:column;overflow:hidden}
+.hero h1{font-size:clamp(40px,min(5.9vw,9.6vh),90px);max-width:22ch;line-height:1}
+.hero-body{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);grid-template-rows:minmax(0,1fr);gap:clamp(28px,4vw,64px);margin-top:clamp(18px,3.5vh,40px);padding-bottom:clamp(18px,3.5vh,40px);flex:1;min-height:0}
+.hero-copy p{font-size:clamp(18px,1.45vw,21px);color:var(--ink-2);max-width:30ch}
+.hero-copy .cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:30px}
+/* The cluster is a size container. Each frame takes the smaller of a share of its width or a
+   share of its height, so on a short laptop screen the photos shrink instead of dropping below the fold. */
+.cluster{position:relative;z-index:2;container-type:size;min-height:0;--wm:min(64cqw,118cqh)}
+.cluster .frame{position:absolute}
+.c-main{left:9cqw;top:0;width:var(--wm);--r:-1.2deg}
+.c-left{left:0;bottom:2cqh;width:min(31cqw,44cqh);--r:2.4deg}
+.c-right{left:min(calc(9cqw + var(--wm) + 2cqw),calc(100cqw - min(22cqw,42cqh)));top:12cqh;width:min(22cqw,42cqh);--r:3deg}
+/* chair rail over a band of real travertine (photo), like the stone under the Nonna Wall */
+.wainscot{position:relative;z-index:1;flex:none;height:clamp(52px,min(6vw,9vh),84px);border-top:7px solid var(--rail);
+  background:url("assets/travertine.jpg") 0 0/auto 220% repeat-x;box-shadow:inset 0 8px 6px -5px rgba(0,0,0,.3)}
+@media (prefers-color-scheme:dark){.wainscot{filter:brightness(.55) saturate(.8)}}
+@media (max-width:960px){
+  .hero{height:max(100svh,680px);padding-top:calc(var(--nav-h) + 32px)}
+  .hero-body{grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);gap:28px}
+  .cluster{max-width:640px;--wm:min(84cqw,112cqh)}
+  .c-main{left:0}
+  .c-left{width:min(44cqw,48cqh);left:calc(var(--wm) - min(44cqw,48cqh) * .7);bottom:0}
+  .c-right{display:none}
+}
+
+
+/* ---------- menu: a printed card laid on the table ---------- */
+.menu-sec{background:var(--wall-2) var(--plaster) 0 0/900px auto;background-blend-mode:soft-light}
+.card{background:var(--paper);max-width:1160px;margin-inline:auto;padding:clamp(28px,5vw,72px);box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 40px 60px -40px rgba(var(--shadow),.55),0 2px 4px rgba(var(--shadow),.08)}
+.card-head p{color:var(--ink-2);max-width:52ch;margin-top:18px;font-size:18px}
+/* The selector reads like the index of a printed menu: square cells, hairline rules,
+   and one ink block (tomato edge on top) that slides to the section you pick. */
+.tabs{--rule:color-mix(in srgb,var(--ink) 26%,transparent);position:relative;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));margin:clamp(32px,4vw,48px) 0 clamp(30px,3.4vw,44px);border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.tabs::before{content:"";position:absolute;z-index:0;left:0;top:0;width:var(--tw,0);height:var(--th,0);transform:translate(var(--tx,0),var(--ty,0));background:var(--ink);box-shadow:inset 0 3px 0 var(--accent)}
+.tabs.ready::before{transition:transform .55s var(--ease),width .55s var(--ease),height .55s var(--ease)}
+.tabs button{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:space-between;gap:12px;min-height:92px;padding:16px 16px 14px;text-align:left;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);color:var(--ink-2);transition:color .45s var(--ease),background-color .25s var(--ease)}
+.tabs .tn{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.08}
+.tabs .tc{font-size:12px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;opacity:.8;font-variant-numeric:lining-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tabs button:hover:not([aria-selected=true]){color:var(--ink);background:color-mix(in srgb,var(--ink) 5%,transparent)}
+.tabs button[aria-selected=true]{color:var(--paper)}
+.tabs:not(.ready) button[aria-selected=true]{background:var(--ink)}
+.tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:-5px;border-radius:0}
+@media (max-width:860px){.tabs{grid-template-columns:repeat(4,minmax(0,1fr))}.tabs button{min-height:78px;padding:13px 12px 11px;gap:8px}.tabs .tn{font-size:17px}.tabs .tc{font-size:11px;letter-spacing:.06em}}
+@media (max-width:420px){.tabs button{min-height:72px;padding:11px 9px 10px}.tabs .tn{font-size:15px}.tabs .tc{font-size:10px;letter-spacing:.02em}}
+.panel:not([hidden]){animation:rise .5s var(--ease) both}
+.panel[hidden]{display:none}
+.panel > p.note{color:var(--ink-2);font-style:italic;margin:-6px 0 22px}
+/* The large photo on the left follows the dish you point at; each row keeps its own thumbnail
+   so the photos still lead on a phone, where the large photo steps aside. */
+.menu-body{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,4.5vw,64px);align-items:start}
+.menu-body.wide{grid-template-columns:minmax(0,1fr)}
+.menu-body.wide .show{display:none}
+.show{position:sticky;top:calc(var(--nav-h) + 34px);margin:0}
+.show-ph{aspect-ratio:1;overflow:hidden;background:var(--wall-2);box-shadow:0 30px 40px -30px rgba(var(--shadow),.6)}
+.show-ph img{width:100%;height:100%;object-fit:cover;display:block}
+.show-ph img.swap{animation:showIn .6s var(--ease) both}
+@keyframes showIn{from{opacity:.25;transform:scale(1.035)}}
+.show figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:16px;font-family:var(--display);font-style:italic;font-size:22px;color:var(--ink)}
+.show figcaption b{font-style:normal;font-size:20px}
+.dishes{list-style:none;display:grid;gap:0}
+.dish{display:grid;grid-template-columns:84px minmax(0,1fr);gap:20px;align-items:start;padding:16px 0;border-top:1px solid var(--line);animation:rise .55s var(--ease) both;animation-delay:calc(var(--i,0) * 35ms)}
+.dish:first-child{border-top:0;padding-top:0}
+.dish.no-ph{grid-template-columns:minmax(0,1fr);padding-left:104px}
+.thumb{display:block;width:84px;aspect-ratio:1;overflow:hidden;background:var(--wall-2);cursor:zoom-in;outline-offset:3px}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease),opacity .3s var(--ease)}
+.dish:hover .thumb img,.dish.on .thumb img{transform:scale(1.08)}
+.dish.on h3{color:var(--accent)}
+.dish h3{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:0;line-height:1.2;transition:color .3s var(--ease)}
+.dish b{font-weight:700;white-space:nowrap}
+.dh{display:flex;justify-content:space-between;gap:18px;align-items:baseline}
+.dish p{color:var(--ink-2);font-size:16px;margin-top:4px;max-width:52ch}
+.dish small{display:block;color:var(--accent);font-size:14px;margin-top:4px}
+.group{font-family:var(--display);font-weight:700;font-size:24px;line-height:1;margin:34px 0 14px}
+.sides{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 40px;font-size:17px}
+.sides li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dotted var(--line);padding-bottom:6px}
+.drinks{grid-template-columns:1fr 1fr;column-gap:56px}
+.drinks .dish{grid-template-columns:minmax(0,1fr);gap:2px;padding:14px 0}
+.drinks .dish > div{display:flex;justify-content:space-between;gap:18px;align-items:baseline}
+.drinks .group{grid-column:1/-1;margin:26px 0 4px}
+.drinks .group:first-child{margin-top:0}
+.drinks .group + .dish,.drinks .group + .dish + .dish{border-top:0;padding-top:6px}
+@media (max-width:900px){.menu-body{grid-template-columns:minmax(0,1fr)}.show{display:none}.dish{grid-template-columns:96px minmax(0,1fr);gap:16px}.thumb{width:96px}.dish.no-ph{padding-left:112px}}
+@media (max-width:560px){.dish{grid-template-columns:88px minmax(0,1fr);gap:14px}.thumb{width:88px}.dish.no-ph{padding-left:102px}.dh{flex-direction:column;gap:2px}.dish h3{font-size:19px}.sides,.drinks{grid-template-columns:1fr}.drinks .group + .dish + .dish{border-top:1px solid var(--line);padding-top:14px}}
+/* full-size photo */
+.lightbox{border:0;padding:0;background:var(--paper);color:var(--ink);width:min(920px,calc(100% - 32px));max-height:calc(100dvh - 32px);margin:auto;display:none;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.lightbox[open]{display:grid;animation:rise .45s var(--ease) both}
+.lightbox::backdrop{background:rgba(24,16,11,.72);backdrop-filter:blur(3px)}
+.lightbox img{width:100%;height:100%;aspect-ratio:1;object-fit:cover}
+.lb-text{padding:clamp(24px,4vw,44px);display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.lb-text h3{font-size:clamp(28px,3vw,38px)}
+.lb-text b{font-size:20px}
+.lb-text p{color:var(--ink-2)}
+.lb-text .btn{margin-top:auto}
+@media (max-width:700px){.lightbox[open]{grid-template-columns:minmax(0,1fr);overflow:auto}.lightbox img{height:auto}.lb-text .btn{margin-top:14px}}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}}
+.card-foot{margin-top:clamp(40px,5vw,56px);padding-top:26px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:22px 40px;align-items:center}
+.house{list-style:none;display:grid;gap:4px;color:var(--ink-2);font-size:16px;font-style:italic;max-width:62ch}
+.pdfs{display:flex;flex-wrap:wrap;gap:12px 26px}
+@media (max-width:760px){.card{margin-inline:-16px;width:auto}}
+
+/* ---------- nonna wall ---------- */
+.wall{position:relative;min-height:92vh;padding:0;display:grid;align-items:end;overflow:hidden;background:#20160f;color:#f6eee1}
+.wall > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.wall::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(24,16,11,.96) 0%,rgba(24,16,11,.84) 42%,rgba(24,16,11,.22) 74%,rgba(24,16,11,.3) 100%),linear-gradient(90deg,rgba(24,16,11,.55),transparent 60%)}
+.wall .wrap{position:relative;z-index:2;padding-block:120px clamp(56px,7vw,96px);display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:28px clamp(40px,6vw,96px);align-items:end}
+.wall blockquote{font-family:var(--display);font-style:italic;font-weight:600;font-size:clamp(28px,3.2vw,46px);line-height:1.12;letter-spacing:-.005em;max-width:24ch;text-wrap:balance}
+.wall .julia{max-width:50ch;color:#e6dac7;font-size:clamp(17px,1.35vw,19px)}
+.wall blockquote cite{display:block;font-family:var(--body);font-style:normal;font-weight:700;font-size:18px;color:#f6eee1;margin-top:18px;letter-spacing:0}
+.wall .ask{margin-top:30px;display:inline-flex;align-items:center;gap:12px;color:#f6eee1;font-weight:500}
+.wall .ask i{font-size:22px;color:#f08a74}
+@media (max-width:860px){.wall .wrap{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:760px){.wall{min-height:auto}.wall > img{position:relative;height:56vh;min-height:320px}.wall::before{background:linear-gradient(180deg,transparent 30%,rgba(24,16,11,1) 56vh)}.wall{align-items:start}.wall .wrap{padding-top:0;margin-top:-40px}}
+
+/* ---------- story ---------- */
+.story-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(48px,7vw,120px);align-items:start}
+.story-grid h2{max-width:12ch}
+.story-text p{font-size:clamp(18px,1.4vw,20px);max-width:54ch;margin-top:22px}
+.story-text p.first{margin-top:34px}
+.pull{margin:44px 0 0;font-family:var(--display);font-style:italic;font-weight:600;font-size:clamp(32px,3.2vw,46px);line-height:1;color:var(--accent);max-width:18ch}
+.pull cite{display:block;font-family:var(--body);font-weight:500;font-style:normal;color:var(--ink-2);font-size:15px;margin-top:12px;letter-spacing:0}
+.people{display:grid;grid-template-columns:1fr 1fr;gap:26px 40px;margin-top:56px;padding-top:30px;border-top:1px solid var(--line)}
+.people dt{font-weight:600;font-size:18px}
+.people dd{color:var(--ink-2);font-size:15px;margin-top:2px}
+.awards{margin-top:38px;color:var(--ink-2);font-size:15px;display:flex;gap:12px;align-items:flex-start;max-width:60ch}
+.awards i{font-size:22px;color:var(--accent);flex:none;margin-top:1px}
+.story-frames{position:relative;padding-top:20px}
+.story-frames .s-big{--r:1.6deg;--ar:3/4}
+.story-frames .s-small{--r:-3deg;width:58%;margin:-22% 0 0 -12%;position:relative}
+.story-frames .s-big img{object-position:62% 50%}
+@media (max-width:960px){.story-grid{grid-template-columns:minmax(0,1fr)}.story-frames{max-width:520px}.story-frames .s-small{margin:-18% 0 0 auto}}
+@media (max-width:560px){.people{grid-template-columns:1fr}}
+
+/* ---------- the room: hung salon style ---------- */
+.room{background:var(--wall-2) var(--plaster) 0 0/900px auto;background-blend-mode:soft-light}
+.room h2{max-width:14ch}
+.salon{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(36px,4vw,64px) clamp(24px,3vw,48px);align-items:center;margin-top:clamp(48px,6vw,88px)}
+.salon figure{grid-column:span var(--s);transform:translateY(var(--y,0))}
+.salon figcaption{text-align:center}
+.salon .frame:hover{--r:0deg}
+.salon .frame{transition:opacity .7s var(--ease),transform .9s var(--ease-hang)}
+@media (max-width:960px){.salon{grid-template-columns:1fr 1fr;align-items:start;gap:34px 18px}.salon figure{grid-column:span 1;transform:none}.salon figure.w2{grid-column:1/-1}}
+
+/* ---------- regulars, in their words ---------- */
+.voices{text-align:center}
+.voices blockquote{max-width:40ch;margin:34px auto 0;min-height:4.4em;font-family:var(--display);font-style:italic;font-weight:600;font-size:clamp(26px,2.7vw,40px);line-height:1.1;letter-spacing:-.01em;text-wrap:balance}
+.voices blockquote p{animation:rise .6s var(--ease) both}
+.voices cite{display:block;margin-top:24px;font-family:var(--body);font-size:16px;font-weight:400;letter-spacing:0;font-style:normal;color:var(--ink-2)}
+.voices cite b{color:var(--ink);font-weight:600}
+.who{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:36px}
+.who button{padding:10px 18px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);font-weight:500;color:var(--ink-2);transition:background .25s var(--ease),color .25s var(--ease)}
+.who button:hover{color:var(--ink)}
+.who button[aria-selected=true]{background:var(--ink);color:var(--wall);box-shadow:none}
+.voices .more{margin-top:40px}
+
+/* ---------- events + at home ---------- */
+.gather{padding-top:0}
+.diptych{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.party{position:relative;isolation:isolate;overflow:hidden;color:#f6eee1;padding:clamp(36px,5vw,72px);min-height:620px;display:flex;flex-direction:column;justify-content:flex-end;background:#2b1d16}
+.party > img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}
+.party::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(30,20,14,.95) 18%,rgba(30,20,14,.5) 62%,rgba(30,20,14,.15))}
+.party h2,.home h2{font-size:clamp(42px,4.8vw,72px)}
+.party p{color:#e6dac7;max-width:46ch;margin-top:18px;font-size:18px}
+.facts{display:flex;flex-wrap:wrap;gap:20px 44px;margin-top:30px}
+.facts b{display:block;font-family:var(--display);font-weight:800;font-size:46px;line-height:.95}
+.facts span{font-size:14px;color:#d9ccb8}
+.party .row{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;margin-top:34px}
+.party .btn.quiet{color:#f6eee1;box-shadow:inset 0 0 0 1.5px #f6eee1}
+.party .btn.quiet .ic{background:#f6eee1;color:#2b1d16}
+.party .btn.quiet:hover{background:#f6eee1;color:#2b1d16}
+.home{background:var(--paper);padding:clamp(36px,5vw,64px);display:flex;flex-direction:column;gap:26px}
+.home .frame{--r:-1.4deg;margin:4px 6px 10px}
+.home p{color:var(--ink-2)}
+.home .row{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;margin-top:auto}
+@media (max-width:560px){.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.facts b{font-size:38px}.facts span{font-size:13px;display:block;line-height:1.35;margin-top:4px}}
+@media (max-width:960px){.diptych{grid-template-columns:minmax(0,1fr)}.party{min-height:560px}.party::before{background:linear-gradient(0deg,rgba(30,20,14,.95) 30%,rgba(30,20,14,.78) 75%,rgba(30,20,14,.62))}}
+
+/* ---------- visit ---------- */
+.visit-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,6vw,96px);align-items:start}
+.visit h2{max-width:11ch}
+.now{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-weight:600;padding:9px 16px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line)}
+.now i{font-size:20px;color:var(--accent)}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:10px 36px;margin:30px 0 0;max-width:380px;font-variant-numeric:tabular-nums}
+.hours dt{font-weight:600}
+.hours dd{color:var(--ink-2)}
+.hours .today,.hours .today + dd{color:var(--accent)}
+.find{margin-top:36px;padding:22px 24px;background:var(--wall-2);max-width:460px}
+.find b{display:flex;align-items:center;gap:10px;font-weight:600}
+.find b i{font-size:22px;color:var(--accent)}
+.find p{color:var(--ink-2);font-size:16px;margin-top:6px}
+.contact{display:grid;gap:14px;margin-top:34px}
+.contact a{display:inline-flex;align-items:center;gap:12px;width:fit-content;font-size:18px;transition:color .25s var(--ease)}
+.contact a:hover{color:var(--accent)}
+.contact i{font-size:22px;color:var(--accent)}
+.visit .row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.map-frame{--r:.6deg}
+.map-frame iframe{display:block;border:0;width:100%;aspect-ratio:4/3.4;filter:sepia(.28) saturate(.85) contrast(.95);background:#d9c9ad}
+@media (prefers-color-scheme:dark){.map-frame iframe{filter:invert(.9) hue-rotate(180deg) sepia(.35) saturate(.7) contrast(.9)}}
+@media (max-width:960px){.visit-grid{grid-template-columns:minmax(0,1fr)}.map-frame iframe{aspect-ratio:1/1}}
+
+/* ---------- footer ---------- */
+.foot{background:var(--wall-2) var(--plaster) 0 0/900px auto;background-blend-mode:soft-light;padding:0 0 48px}
+.foot .wainscot{margin:0 0 64px}
+.fgrid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,3fr) minmax(0,4fr);gap:40px}
+.fgrid .brand img{height:44px}
+.fgrid .motto{font-family:var(--display);font-style:italic;font-weight:600;font-size:30px;line-height:1;margin-top:22px;max-width:16ch}
+.fgrid h3{font-family:var(--body);font-size:16px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin-bottom:14px}
+.fgrid nav a,.fgrid .lines a{display:flex;align-items:center;gap:10px;padding:5px 0;width:fit-content;transition:color .25s var(--ease)}
+.fgrid nav a:hover,.fgrid .lines a:hover{color:var(--accent)}
+.fgrid i{font-size:20px}
+.social{display:flex;gap:8px;margin-top:18px}
+.social a{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 1px var(--line);font-size:22px;transition:background .25s var(--ease),color .25s var(--ease)}
+.social a:hover{background:var(--ink);color:var(--wall)}
+.fbot{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;color:var(--ink-2);font-size:14px}
+@media (max-width:860px){.fgrid{grid-template-columns:1fr 1fr}.fgrid > div:first-child{grid-column:1/-1}}
+
+/* ---------- reveal: frames are hung, text settles ---------- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.hang{opacity:0;transform:translateY(-26px) rotate(calc(var(--r) - 4deg));transition:opacity .7s var(--ease),transform 1.1s var(--ease-hang)}
+.hang.in{opacity:1;transform:rotate(var(--r))}
+.hero .hang{transition-delay:calc(var(--d,0) * 1ms)}
+.hero h1,.hero-copy{animation:rise .9s var(--ease) both}
+.hero-copy{animation-delay:.12s}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv,.hang{opacity:1;transform:rotate(var(--r,0deg))}
+  .rv{transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ===== NAV ===== -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Ritorno, back to top">
+    <img class="logo-ink" src="assets/logo-ink.png" alt="Ritorno" width="560" height="210">
+    <img class="logo-cream" src="assets/logo-cream.png" alt="Ritorno" width="560" height="210">
+  </a>
+  <nav class="menu" aria-label="Main">
+    <a href="#menu">Menu</a>
+    <a href="#nonna-wall">Nonna Wall</a>
+    <a href="#story">Our story</a>
+    <a href="#events">Events</a>
+    <a href="#visit">Visit</a>
+  </nav>
+  <div class="tools">
+    <span class="status js-status">Hours below</span>
+    <a class="btn sm" href="tel:+19052575881">Call to book <span class="ic"><i class="ph-light ph-phone"></i></span></a>
+    <a class="icon-btn call" href="tel:+19052575881" aria-label="Call Ritorno to book, 905-257-5881"><i class="ph-light ph-phone"></i></a>
+    <button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><i class="ph-light ph-list"></i></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true" inert>
+  <header>
+    <a class="brand" href="#top" aria-label="Ritorno, back to top"><img class="logo-ink" src="assets/logo-ink.png" alt="Ritorno" width="560" height="210" style="height:30px"><img class="logo-cream" src="assets/logo-cream.png" alt="Ritorno" width="560" height="210" style="height:30px"></a>
+    <button class="icon-btn" id="closeDrawer" aria-label="Close menu"><i class="ph-light ph-x"></i></button>
+  </header>
+  <nav aria-label="Mobile">
+    <a href="#menu">Menu</a>
+    <a href="#nonna-wall">Nonna Wall</a>
+    <a href="#story">Our story</a>
+    <a href="#events">Events</a>
+    <a href="#visit">Visit</a>
+  </nav>
+  <footer>
+    <span class="js-status">Hours below</span>
+    <a class="btn" href="tel:+19052575881">Call to book <span class="ic"><i class="ph-light ph-phone"></i></span></a>
+  </footer>
+</div>
+
+<main id="main">
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top" aria-labelledby="h1">
+  <div class="wrap">
+    <h1 id="h1">Family is whoever sits around the table.</h1>
+  </div>
+  <div class="wrap hero-body">
+    <div class="hero-copy">
+      <p>Homemade gnocchi, pasta and pizza, served to share at Trafalgar and Dundas since 2008.</p>
+      <div class="cta">
+        <a class="btn" href="tel:+19052575881">Call to book <span class="ic"><i class="ph-light ph-phone"></i></span></a>
+        <a class="link" href="#menu">See the menu <i class="ph-light ph-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="cluster">
+      <figure class="frame c-main hang" style="--d:150">
+        <img src="assets/julia-and-mother.jpg" srcset="assets/julia-and-mother-800.jpg 800w, assets/julia-and-mother.jpg 1400w" sizes="(max-width: 960px) 84vw, 44vw" width="1400" height="933" fetchpriority="high" alt="Julia Hanna, smiling, with her hands on her mother's shoulders in front of the Nonna Wall">
+      </figure>
+      <figure class="frame f-walnut c-left hang" style="--d:380;--ar:1/1">
+        <img src="assets/caprese.jpg" width="1000" height="667" alt="Caprese with fior di latte, Roma tomato, basil and balsamic reduction on a walnut table">
+      </figure>
+      <figure class="frame c-right hang" style="--d:560;--ar:3/4">
+        <img src="assets/pizza-bianca.jpg" width="900" height="1200" alt="Pizza Bianca con Patate Dolce with sweet potato, red onion and dollops of ricotta">
+      </figure>
+    </div>
+  </div>
+  <div class="wainscot" aria-hidden="true"></div>
+</section>
+
+<!-- ===== MENU ===== -->
+<section class="menu-sec" id="menu" aria-labelledby="menu-h">
+  <div class="wrap">
+    <div class="card rv">
+      <div class="card-head">
+        <h2 id="menu-h">The menu</h2>
+        <p>Traditional Italian, made from scratch. Fresh, quality ingredients presented in their truest forms.</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Menu sections" id="tabs">
+        <button role="tab" id="t-antipasti" aria-controls="p-antipasti" aria-selected="true"><span class="tn">Antipasti</span><span class="tc">6 plates</span></button>
+        <button role="tab" id="t-insalata" aria-controls="p-insalata" aria-selected="false" tabindex="-1"><span class="tn">Insalata</span><span class="tc">4 salads</span></button>
+        <button role="tab" id="t-gnocchi" aria-controls="p-gnocchi" aria-selected="false" tabindex="-1"><span class="tn">Nonna's Gnocchi</span><span class="tc">5 sauces</span></button>
+        <button role="tab" id="t-pasta" aria-controls="p-pasta" aria-selected="false" tabindex="-1"><span class="tn">Pasta</span><span class="tc">8 pastas</span></button>
+        <button role="tab" id="t-carne" aria-controls="p-carne" aria-selected="false" tabindex="-1"><span class="tn">Carne e Pesce</span><span class="tc">4 mains</span></button>
+        <button role="tab" id="t-pizza" aria-controls="p-pizza" aria-selected="false" tabindex="-1"><span class="tn">Pizza</span><span class="tc">4 pizzas</span></button>
+        <button role="tab" id="t-dolci" aria-controls="p-dolci" aria-selected="false" tabindex="-1"><span class="tn">Dolci</span><span class="tc">3 desserts</span></button>
+        <button role="tab" id="t-drinks" aria-controls="p-drinks" aria-selected="false" tabindex="-1"><span class="tn">Drinks</span><span class="tc">Wine &amp; bar</span></button>
+      </div>
+
+      <div class="menu-body" id="menuBody">
+      <figure class="show" id="show" aria-hidden="true">
+        <div class="show-ph"><img id="showImg" src="assets/menu/burrata.jpg" width="640" height="640" alt=""></div>
+        <figcaption><span id="showName">Chef Simon's Burrata</span><b id="showPrice">23</b></figcaption>
+      </figure>
+      <div class="panels">
+      <div class="panel" role="tabpanel" id="p-antipasti" aria-labelledby="t-antipasti">
+        <ul class="dishes">
+          <li class="dish" data-img="assets/menu/burrata.jpg" data-alt="Burrata on tomato and onion jam with prosciutto and triangles of toasted focaccia"><button class="thumb" type="button" aria-label="See a photo of the Chef Simon&#x27;s Burrata"><img src="assets/menu/burrata.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Chef Simon's Burrata</h3><b>23</b></div><p>cow's milk cheese | tomato &amp; onion jam | prosciutto | EVOO | garlic toasted focaccia</p></div></li>
+          <li class="dish" data-img="assets/menu/calamari.jpg" data-alt="Fried calamari and zucchini with lemon, aioli and tomato sauce"><button class="thumb" type="button" aria-label="See a photo of the Calamari Fritti"><img src="assets/menu/calamari.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Calamari Fritti</h3><b>18</b></div><p>seasoned flour | hot banana peppers | zucchini | lemon garlic aioli | tomato sauce</p></div></li>
+          <li class="dish" data-img="assets/menu/bruschetta.jpg" data-alt="Bruschetta piled with diced Roma tomatoes and basil on focaccia"><button class="thumb" type="button" aria-label="See a photo of the Café Galleria Bruschetta"><img src="assets/menu/bruschetta.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Café Galleria Bruschetta</h3><b>15</b></div><p>Roma tomatoes | basil | mozzarella | garlic toasted focaccia | balsamic glaze</p></div></li>
+          <li class="dish" data-img="assets/menu/meatballs.jpg" data-alt="Meatballs baked under melted mozzarella in a cast-iron pan"><button class="thumb" type="button" aria-label="See a photo of the Baked Meatballs"><img src="assets/menu/meatballs.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Baked Meatballs</h3><b>19</b></div><p>pork &amp; beef meatballs | tomato sauce | mozzarella</p></div></li>
+          <li class="dish" data-img="assets/menu/olives.jpg" data-alt="Green and black olives in a long white dish"><button class="thumb" type="button" aria-label="See a photo of the Warm Marinated Olives"><img src="assets/menu/olives.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Warm Marinated Olives</h3><b>8</b></div><p>mixed olives | olive oil | herbs</p></div></li>
+          <li class="dish no-ph"><div class="dt"><div class="dh"><h3>Pomodoro Mussels</h3><b>18</b></div><p>1 lb mussels | tomato sauce | bruschetta tomatoes | garlic toasted focaccia</p><small>Ask for availability</small></div></li>
+        </ul>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-insalata" aria-labelledby="t-insalata" hidden>
+        <ul class="dishes">
+          <li class="dish" data-img="assets/menu/beet-salad.jpg" data-alt="Mixed greens with red and golden beets, squash, bocconcini and cranberries"><button class="thumb" type="button" aria-label="See a photo of the Ritorno Salad"><img src="assets/menu/beet-salad.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Ritorno Salad</h3><b>19</b></div><p>mixed greens | red &amp; golden beets | butternut squash | pumpkin seeds | bocconcini | cranberries | pickled onions | maple balsamic vinaigrette</p></div></li>
+          <li class="dish" data-img="assets/menu/caprese-salad.jpg" data-alt="Sliced tomato and fior di latte with basil and arugula"><button class="thumb" type="button" aria-label="See a photo of the Caprese"><img src="assets/menu/caprese-salad.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Caprese</h3><b>19</b></div><p>fior di latte cheese | Roma tomato | arugula | basil | red wine vinaigrette | balsamic reduction</p></div></li>
+          <li class="dish" data-img="assets/menu/caesar.jpg" data-alt="Caesar salad topped with a crostini"><button class="thumb" type="button" aria-label="See a photo of the Caesar Salad"><img src="assets/menu/caesar.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Caesar Salad</h3><b>16</b></div><p>romaine | Ritorno caesar dressing | prosciutto bits | parmesan | crostini | lemon</p></div></li>
+          <li class="dish" data-img="assets/menu/italiano-salad.jpg" data-alt="Green salad with cucumber and tomato"><button class="thumb" type="button" aria-label="See a photo of the Italiano Salad"><img src="assets/menu/italiano-salad.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Italiano Salad</h3><b>16</b></div><p>romaine | spinach | arugula | cucumber | tomatoes | white onions | red wine vinaigrette</p></div></li>
+        </ul>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-gnocchi" aria-labelledby="t-gnocchi" hidden>
+        <p class="note">Our secret ingredient? Nonna’s hands and 40 years of gnocchi wisdom.</p>
+        <ul class="dishes">
+          <li class="dish" data-img="assets/menu/gnocchi-pomodoro.jpg" data-alt="Gnocchi in bright tomato sauce"><button class="thumb" type="button" aria-label="See a photo of the Gnocchi Pomodoro"><img src="assets/menu/gnocchi-pomodoro.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Gnocchi Pomodoro</h3><b>22</b></div><p>tomato sauce</p></div></li>
+          <li class="dish" data-img="assets/menu/gnocchi-rose.jpg" data-alt="Gnocchi in a pink rosé sauce"><button class="thumb" type="button" aria-label="See a photo of the Gnocchi Rosé"><img src="assets/menu/gnocchi-rose.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Gnocchi Rosé</h3><b>24</b></div><p>tomato sauce | Ontario cream | grana padano</p></div></li>
+          <li class="dish" data-img="assets/menu/gnocchi-bolognese.jpg" data-alt="A server holding a bowl of gnocchi bolognese"><button class="thumb" type="button" aria-label="See a photo of the Gnocchi Bolognese"><img src="assets/menu/gnocchi-bolognese.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Gnocchi Bolognese</h3><b>25</b></div><p>pork &amp; beef | tomato sauce</p></div></li>
+          <li class="dish" data-img="assets/menu/gnocchi-gorgonzola.jpg" data-alt="Gnocchi in a creamy gorgonzola sauce"><button class="thumb" type="button" aria-label="See a photo of the Gnocchi Gorgonzola"><img src="assets/menu/gnocchi-gorgonzola.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Gnocchi Gorgonzola</h3><b>26</b></div><p>Gorgonzola | Ontario cream | grana padano</p></div></li>
+          <li class="dish no-ph"><div class="dt"><div class="dh"><h3>Gnocchi Pesto</h3><b>25</b></div><p>basil | garlic | Ontario cream | grana padano</p></div></li>
+        </ul>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-pasta" aria-labelledby="t-pasta" hidden>
+        <p class="note">Gluten-free penne available, add $2. Add chicken $6 or tiger shrimp (3) $14 to the Alfredo, Formaggio or Primavera.</p>
+        <ul class="dishes">
+          <li class="dish" data-img="assets/menu/alfredo.jpg" data-alt="Fettuccine Alfredo with parsley"><button class="thumb" type="button" aria-label="See a photo of the Fettuccine Alfredo"><img src="assets/menu/alfredo.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Fettuccine Alfredo</h3><b>20</b></div><p>Ontario cream | grana padano</p></div></li>
+          <li class="dish" data-img="assets/menu/penne-formaggio.jpg" data-alt="Penne in rosé sauce with grated cheese"><button class="thumb" type="button" aria-label="See a photo of the Penne Formaggio"><img src="assets/menu/penne-formaggio.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Penne Formaggio</h3><b>23</b></div><p>rosé sauce | asiago | mozzarella | grana padano | spinach</p></div></li>
+          <li class="dish" data-img="assets/menu/penne-limone.jpg" data-alt="Penne with zucchini, cherry tomatoes and dollops of lemon ricotta"><button class="thumb" type="button" aria-label="See a photo of the Penne Limone Primavera"><img src="assets/menu/penne-limone.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Penne Limone Primavera</h3><b>25</b></div><p>roasted red peppers | zucchini | cherry tomatoes | lemon ricotta | garlic | EVOO | grana padano</p></div></li>
+          <li class="dish" data-img="assets/menu/shrimp-bomba.jpg" data-alt="Fettuccine with tiger shrimp"><button class="thumb" type="button" aria-label="See a photo of the Shrimp Bomba"><img src="assets/menu/shrimp-bomba.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Shrimp Bomba</h3><b>32</b></div><p>fettuccine | tiger shrimp | Bomba | fior di latte</p></div></li>
+          <li class="dish" data-img="assets/menu/pescatore.jpg" data-alt="Spaghetti with shrimp, mussels and calamari"><button class="thumb" type="button" aria-label="See a photo of the Pescatore Aglio e Olio"><img src="assets/menu/pescatore.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Pescatore Aglio e Olio</h3><b>32</b></div><p>spaghetti | tiger shrimp | salmon | calamari | mussels | spinach | garlic | EVOO | herbed tomatoes</p></div></li>
+          <li class="dish" data-img="assets/menu/penne-bolognese.jpg" data-alt="Penne bolognese topped with crispy fried leeks"><button class="thumb" type="button" aria-label="See a photo of the Bolognese"><img src="assets/menu/penne-bolognese.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Bolognese</h3><b>24</b></div><p>pork &amp; beef | tomato sauce. Choice of penne or spaghetti</p></div></li>
+          <li class="dish" data-img="assets/menu/lasagna.jpg" data-alt="A square of lasagna in tomato sauce"><button class="thumb" type="button" aria-label="See a photo of the Nonna&#x27;s 8 Layer Lasagna"><img src="assets/menu/lasagna.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Nonna's 8 Layer Lasagna</h3><b>28</b></div><p>bolognese | mozzarella | parmesan | ricotta</p></div></li>
+          <li class="dish" data-img="assets/menu/sausage-rapini.jpg" data-alt="Orecchiette with sausage and rapini"><button class="thumb" type="button" aria-label="See a photo of the Sausage &amp; Rapini"><img src="assets/menu/sausage-rapini.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Sausage &amp; Rapini</h3><b>24</b></div><p>orecchiette | rapini | pork sausage | garlic | EVOO | chili flakes | grana padano</p></div></li>
+        </ul>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-carne" aria-labelledby="t-carne" hidden>
+        <ul class="dishes">
+          <li class="dish" data-img="assets/menu/pollo-piccata.jpg" data-alt="Chicken piccata in lemon cream sauce, being cut at the table"><button class="thumb" type="button" aria-label="See a photo of the Pollo Piccata"><img src="assets/menu/pollo-piccata.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Pollo Piccata</h3><b>28</b></div><p>seared chicken breast | lemon cream sauce | caramelized carrots | green beans | roasted potatoes</p></div></li>
+          <li class="dish" data-img="assets/menu/salmon-pesto.jpg" data-alt="Salmon with sundried tomato pesto on roasted red and golden beets"><button class="thumb" type="button" aria-label="See a photo of the Sundried Tomato Pesto Salmon"><img src="assets/menu/salmon-pesto.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Sundried Tomato Pesto Salmon</h3><b>30</b></div><p>Atlantic salmon | roasted beets | roasted potatoes | crispy arugula | balsamic glaze</p></div></li>
+          <li class="dish" data-img="assets/menu/veal-parm.jpg" data-alt="Veal parmigiana over spaghetti pomodoro"><button class="thumb" type="button" aria-label="See a photo of the Veal Parmigiana"><img src="assets/menu/veal-parm.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Veal Parmigiana</h3><b>32</b></div><p>in-house breaded veal | mozzarella | tomato sauce. With caramelized carrots, green beans &amp; roasted potatoes, or spaghetti pomodoro</p><small>Swap to Alfredo or Bolognese, add $4</small></div></li>
+          <li class="dish" data-img="assets/menu/osso-bucco.jpg" data-alt="Braised lamb shank on garlic mashed potatoes with carrots and green beans"><button class="thumb" type="button" aria-label="See a photo of the Lamb Osso Bucco"><img src="assets/menu/osso-bucco.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Lamb Osso Bucco</h3><b>35</b></div><p>braised lamb shank | red wine jus | green beans | caramelized carrots | garlic mashed potatoes</p></div></li>
+        </ul>
+        <h3 class="group">Sides &amp; add-ons</h3>
+        <ul class="sides">
+          <li><span>Pork &amp; Beef Meatball</span><b>5</b></li>
+          <li><span>Seared Chicken Breast</span><b>10</b></li>
+          <li><span>Tiger Shrimp (3)</span><b>14</b></li>
+          <li><span>Atlantic Salmon</span><b>14</b></li>
+          <li><span>Rapini</span><b>8</b></li>
+          <li><span>Focaccia</span><b>6</b></li>
+          <li><span>Carrots, Green Beans &amp; Potatoes</span><b>6</b></li>
+        </ul>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-pizza" aria-labelledby="t-pizza" hidden>
+        <p class="note">10″ thin crust from imported “00” flour.</p>
+        <ul class="dishes">
+          <li class="dish" data-img="assets/menu/margherita.jpg" data-alt="Margherita pizza with basil leaves"><button class="thumb" type="button" aria-label="See a photo of the Margherita"><img src="assets/menu/margherita.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Margherita</h3><b>20</b></div><p>fior di latte | mozzarella | tomato sauce | basil</p></div></li>
+          <li class="dish" data-img="assets/menu/asiago-artichoke.jpg" data-alt="White pizza with artichokes and spinach"><button class="thumb" type="button" aria-label="See a photo of the Asiago Artichoke"><img src="assets/menu/asiago-artichoke.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Asiago Artichoke</h3><b>25</b></div><p>artichokes | white onions | spinach | asiago | mozzarella | roasted garlic</p></div></li>
+          <li class="dish" data-img="assets/menu/sausage-pizza.jpg" data-alt="Pizza covered in crumbled Italian sausage"><button class="thumb" type="button" aria-label="See a photo of the Sausage"><img src="assets/menu/sausage-pizza.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Sausage</h3><b>25</b></div><p>Italian sausage | crispy prosciutto | mozzarella | tomato sauce | hot honey</p></div></li>
+          <li class="dish" data-img="assets/menu/pizza-bianca.jpg" data-alt="White pizza with sweet potato, red onion and ricotta"><button class="thumb" type="button" aria-label="See a photo of the Pizza Bianca con Patate Dolce"><img src="assets/menu/pizza-bianca.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Pizza Bianca con Patate Dolce</h3><b>Weekly</b></div><p>sweet potato | roasted garlic | fresh ricotta. Get it while you can</p></div></li>
+        </ul>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-dolci" aria-labelledby="t-dolci" hidden>
+        <p class="note">Celebrating? Our cannoli make an excellent after-dinner treat.</p>
+        <ul class="dishes">
+          <li class="dish" data-img="assets/menu/tiramisu.jpg" data-alt="A slice of tiramisu dusted with cocoa"><button class="thumb" type="button" aria-label="See a photo of the Tiramisu"><img src="assets/menu/tiramisu.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Tiramisu</h3><b>14</b></div><p>espresso and marsala soaked ladyfingers | mascarpone cheese mousse</p></div></li>
+          <li class="dish" data-img="assets/menu/choc-cake.jpg" data-alt="A wedge of flourless chocolate cake with sauce and whipped cream"><button class="thumb" type="button" aria-label="See a photo of the Flourless Chocolate Cake"><img src="assets/menu/choc-cake.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Flourless Chocolate Cake</h3><b>12</b></div><p>caramel | whipped cream</p></div></li>
+          <li class="dish" data-img="assets/menu/cannoli.jpg" data-alt="Ricotta cannoli drizzled with sauce"><button class="thumb" type="button" aria-label="See a photo of the Cannoli (4)"><img src="assets/menu/cannoli.jpg" width="640" height="640" loading="lazy" alt=""></button><div class="dt"><div class="dh"><h3>Cannoli (4)</h3><b>8</b></div><p>butterscotch | caramel | ricotta</p></div></li>
+        </ul>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-drinks" aria-labelledby="t-drinks" hidden>
+        <p class="note">Wine by the glass: 6 oz / 9 oz / bottle.</p>
+        <ul class="dishes drinks">
+          <li class="group">Vino rosso</li>
+          <li class="dish"><div><h3>Cabernet Sauvignon</h3><b>11 / 15 / 45</b></div><p>Tenuta Santome, Veneto. Dark plum and black cherry with hints of spice.</p></li>
+          <li class="dish"><div><h3>Sangiovese</h3><b>10 / 14 / 42</b></div><p>Badia di Morrona, Tuscany. Aromatic berries and herbs.</p></li>
+          <li class="dish"><div><h3>Chianti</h3><b>12 / 16 / 47</b></div><p>Badia di Morrona, Tuscany. Fruit and flowers, soft ripe tannins.</p></li>
+          <li class="dish"><div><h3>Super Tuscan</h3><b>14 / 19 / 56</b></div><p>Badia di Morrona, Tuscany. Cinnamon, chocolate and black pepper.</p></li>
+          <li class="dish"><div><h3>Barolo</h3><b>Bottle 110</b></div><p>Ellena Giuseppe, Piedmont. Cherry, orange zest and wild herbs.</p></li>
+          <li class="group">Vino bianco &amp; bubbles</li>
+          <li class="dish"><div><h3>Unoaked Chardonnay</h3><b>8 / 13 / 36</b></div><p>Vineland Estates, Niagara. Yellow plum, citrus and herbs.</p></li>
+          <li class="dish"><div><h3>Pinot Grigio</h3><b>11 / 15 / 43</b></div><p>Collevento 921, Friuli. Lemon and green apple.</p></li>
+          <li class="dish"><div><h3>Pecorino</h3><b>10 / 15 / 44</b></div><p>Umani Ronchi, Marche. Pink grapefruit and lime, refreshing and dry.</p></li>
+          <li class="dish"><div><h3>Rosato</h3><b>12 / 16 / 45</b></div><p>Bricco Preje, Piemonte. White peach and red currant.</p></li>
+          <li class="dish"><div><h3>Prosecco or Rosé Prosecco</h3><b>10 / Bottle 50</b></div><p>Principi di Porcia, Friuli.</p></li>
+          <li class="group">Spritz, cocktails &amp; sangria</li>
+          <li class="dish"><div><h3>Aperol, Limoncello or Hugo Spritz</h3><b>12</b></div><p>with Prosecco and soda</p></li>
+          <li class="dish"><div><h3>Ritorno Negroni</h3><b>12</b></div><p>gin | Cinzano | Campari</p></li>
+          <li class="dish"><div><h3>JP's Espresso Martini</h3><b>12</b></div><p>vodka | Baileys | Kahlua | espresso</p></li>
+          <li class="dish"><div><h3>Ritorno Red or White Sangria</h3><b>12 / Pitcher 32</b></div><p>red wine, triple sec, orange juice and citrus, or white wine, peach schnapps, juice and berries</p></li>
+          <li class="dish"><div><h3>Peroni, Moretti or Stella</h3><b>9</b></div><p>330 ml. Peroni 0.0% also available, 7</p></li>
+          <li class="dish"><div><h3>Spirit-free</h3><b>5 to 7</b></div><p>Lavender Lemonade | Pink Citrus Mist | Raspberry Spritz | Pomegranate Sunrise</p></li>
+        </ul>
+      </div>
+
+      </div>
+      </div>
+
+      <div class="card-foot">
+        <ul class="house">
+          <li>Ritorno is a nut-free restaurant.</li>
+          <li>Gluten-free penne, add $2.</li>
+          <li>To ensure timely &amp; quality service, menu modifications are politely declined.</li>
+        </ul>
+        <div class="pdfs">
+          <a class="link" href="https://ritorno.ca/wp-content/uploads/2026/09/ritorno-menu.pdf" target="_blank" rel="noopener">Print menu (PDF) <i class="ph-light ph-arrow-up-right"></i></a>
+          <a class="link" href="https://ritorno.ca/wp-content/uploads/2026/06/Current-Drink-Menu-March-2025.pdf" target="_blank" rel="noopener">Full wine list (PDF) <i class="ph-light ph-arrow-up-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NONNA WALL ===== -->
+<section class="wall" id="nonna-wall" aria-labelledby="wall-h">
+  <img src="assets/nonna-wall-room.jpg" srcset="assets/nonna-wall-room-900.jpg 900w, assets/nonna-wall-room.jpg 1600w" sizes="100vw" width="1600" height="1065" loading="lazy" alt="Guests at long tables under the Nonna Wall, hundreds of framed photographs of grandmothers covering the wall from rail to ceiling">
+  <div class="wrap">
+    <div>
+      <h2 id="wall-h" class="vh">The Nonna Wall</h2>
+      <blockquote class="rv">“My Nonna Maria would be thrilled to know that her picture hangs on the Nonna wall with so many remarkable women.”<cite>Julia Hanna</cite></blockquote>
+    </div>
+    <div>
+      <p class="julia rv">The Nonna wall is a small way to honour the women in our lives, our mothers and grandmothers, who fed us and nurtured us, putting their own wants and needs aside.</p>
+      <p class="ask rv"><i class="ph-light ph-image"></i>Have a nonna who belongs on the wall? Ask Julia next time you're in.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STORY ===== -->
+<section id="story" aria-labelledby="story-h">
+  <div class="wrap story-grid">
+    <div class="story-text">
+      <h2 id="story-h" class="rv">A return to the table, in the Italian way.</h2>
+      <p class="first rv">That is how Julia Hanna describes Ritorno. She grew up in an Italian home where everyone was welcome at the table, opened her first restaurant, Café Galleria in Downtown Oakville, at 26, and has spent 30 years in Oakville restaurants since.</p>
+      <p class="rv">Ritorno opened at Trafalgar and Dundas in 2008. Everything is made from scratch, the kitchen is nut-free, and the food comes out to share.</p>
+      <blockquote class="pull rv">“The Italians have a gift for life.”<cite>Julia Hanna</cite></blockquote>
+      <dl class="people rv">
+        <div><dt>Julia Hanna</dt><dd>Owner. Usually somewhere between the kitchen and your table.</dd></div>
+        <div><dt>Simon Tong</dt><dd>Chef. His burrata, with tomato and onion jam, opens the menu.</dd></div>
+        <div><dt>Julee</dt><dd>Manager. Runs the room and plans the parties.</dd></div>
+        <div><dt>Dave</dt><dd>Behind the bar, and named in more than one review.</dd></div>
+      </dl>
+      <p class="awards rv"><i class="ph-light ph-medal"></i>Oakville Beaver Readers' Choice: Best Italian Restaurant, 2021, and Diamond, Platinum and Gold winner, 2022. Julia was the paper's Restaurateur of the Year in 2010.</p>
+    </div>
+    <div class="story-frames">
+      <figure class="frame s-big hang">
+        <img src="assets/julia-matthew.jpg" width="1100" height="733" loading="lazy" alt="Julia Hanna laughing, arm in arm with Matthew in front of the Nonna Wall">
+      </figure>
+      <figure class="s-small">
+        <div class="frame hang" style="--r:-3deg;--ar:4/5"><img src="assets/nonna-pizza.jpg" width="900" height="1200" loading="lazy" alt="Nonna cutting a tray of holiday pizza on a wooden board"></div>
+        <figcaption>Like Nonna, like daughter. No holiday goes by without pizza.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE ROOM ===== -->
+<section class="room" id="room" aria-labelledby="room-h">
+  <div class="wrap">
+    <h2 id="room-h" class="rv">From our family to yours.</h2>
+    <p class="lede rv">Walnut tables, jam-jar flowers, and a wall that keeps growing.</p>
+    <div class="salon">
+      <figure class="w2" style="--s:5;--y:18px"><div class="frame f-walnut hang" style="--r:-1.4deg;--ar:3/2"><img src="assets/dining-room.jpg" width="1100" height="732" loading="lazy" alt="The dining room set for a party, with wooden chairs, wine glasses and flowers on every table"></div><figcaption>The dining room, set for a party</figcaption></figure>
+      <figure style="--s:4;--y:-26px"><div class="frame hang" style="--r:1.2deg;--ar:2/1"><img src="assets/wall-close.jpg" width="1400" height="703" loading="lazy" alt="Close-up of the Nonna Wall, gilt, black and wooden frames hung edge to edge"></div><figcaption>A few hundred nonnas</figcaption></figure>
+      <figure style="--s:3;--y:30px"><div class="frame f-walnut hang" style="--r:2.2deg;--ar:3/4"><img src="assets/julee.jpg" width="800" height="1067" loading="lazy" alt="Julee, Ritorno's manager, smiling in the dining room"></div><figcaption>Julee, our manager</figcaption></figure>
+      <figure style="--s:4;--y:-8px"><div class="frame hang" style="--r:-2deg;--ar:1/1"><img src="assets/margherita.jpg" width="1000" height="667" loading="lazy" alt="Margherita pizza with fior di latte and basil, surrounded by cherry tomatoes"></div><figcaption>Margherita, “00” flour, 10 inches</figcaption></figure>
+      <figure style="--s:3;--y:34px"><div class="frame hang" style="--r:1.6deg;--ar:3/4"><img src="assets/penne-limone.jpg" width="800" height="1067" loading="lazy" alt="Ritorno's chef at a set table with a bowl of Penne Limone Primavera"></div><figcaption>Penne Limone Primavera</figcaption></figure>
+      <figure class="w2" style="--s:5;--y:-14px"><div class="frame f-walnut hang" style="--r:-.9deg;--ar:3/2"><img src="assets/table-set.jpg" width="1000" height="666" loading="lazy" alt="A walnut table with a burlap runner, jam-jar flowers and a printed event menu at each place"></div><figcaption>Set for a private party</figcaption></figure>
+      <figure style="--s:3;--y:-20px"><div class="frame f-walnut hang" style="--r:2.6deg;--ar:1/1"><img src="assets/kitchen.jpg" width="900" height="900" loading="lazy" alt="A tray of roasted salmon held up in the red-tiled kitchen, next to pans of potatoes and carrots"></div><figcaption>The red-tile kitchen</figcaption></figure>
+      <figure style="--s:4;--y:24px"><div class="frame hang" style="--r:-1.8deg;--ar:4/3"><img src="assets/salmon.jpg" width="1000" height="667" loading="lazy" alt="Seared salmon with pesto and rapini on a copper tray"></div><figcaption>Atlantic salmon</figcaption></figure>
+      <figure class="w2" style="--s:5;--y:-6px"><div class="frame hang" style="--r:1deg;--ar:3/2"><img src="assets/dessert-table.jpg" width="900" height="598" loading="lazy" alt="A dessert table at a private party, with a tiered cake, cookies and flowers by the window"></div><figcaption>Bring the cake, we'll cut it (nut-free, please)</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VOICES ===== -->
+<section class="voices" id="voices" aria-labelledby="voices-h">
+  <div class="wrap">
+    <h2 id="voices-h" class="vh">What guests say</h2>
+    <blockquote id="quote" aria-live="polite"><p>“It's nice to see a neighbourhood family owned business thriving.”</p><cite><b>Kim H.</b></cite></blockquote>
+    <div class="who rv" role="tablist" aria-label="Choose a review" id="who"></div>
+  </div>
+</section>
+
+<!-- ===== EVENTS & AT HOME ===== -->
+<section class="gather" id="events" aria-label="Private events and Ritorno at home">
+  <div class="wrap diptych">
+    <article class="party rv">
+      <img src="assets/focaccia.jpg" width="900" height="599" loading="lazy" alt="">
+      <h2>Book the room</h2>
+      <p>Baptisms, showers, birthdays and work dinners. Weekend daytime events run from 12pm to 4pm for groups of 25 or more, with set menus that start family style. Julee will help you pick the menu and the timing.</p>
+      <div class="facts">
+        <div><b>70</b><span>guests, at most</span></div>
+        <div><b>$50</b><span>a person, set menus from</span></div>
+        <div><b>10</b><span>days ahead, menu choice due</span></div>
+      </div>
+      <div class="row">
+        <a class="btn" href="mailto:reservations@ritorno.ca?subject=Private%20event%20at%20Ritorno">Plan an event <span class="ic"><i class="ph-light ph-envelope-simple"></i></span></a>
+        <a class="btn quiet" href="https://ritorno.ca/wp-content/uploads/2026/06/Events-2026.pdf" target="_blank" rel="noopener">Event menus <span class="ic"><i class="ph-light ph-arrow-up-right"></i></span></a>
+      </div>
+    </article>
+    <article class="home rv">
+      <figure class="frame f-walnut">
+        <img src="assets/at-home.jpg" width="1100" height="733" loading="lazy" alt="Catering trays of veal parmigiana, penne in rosé sauce, Caesar salad and cannoli">
+      </figure>
+      <h2>Ritorno at home</h2>
+      <p>Trays of veal parmigiana, penne and gnocchi for 4 to 6 or 8 to 10, plus our sauces by the litre: pomodoro, bolognese, rosé, alfredo and gorgonzola.</p>
+      <div class="row">
+        <a class="btn" href="https://order.ritorno.ca/" target="_blank" rel="noopener">Order pickup <span class="ic"><i class="ph-light ph-shopping-bag"></i></span></a>
+        <a class="link" href="https://ritorno.ca/wp-content/uploads/2026/09/ritorno-at-home-menu.pdf" target="_blank" rel="noopener">Catering menu <i class="ph-light ph-arrow-up-right"></i></a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== VISIT ===== -->
+<section class="visit" id="visit" aria-labelledby="visit-h">
+  <div class="wrap visit-grid">
+    <div>
+      <h2 id="visit-h" class="rv">Come back soon.</h2>
+      <p class="now rv"><i class="ph-light ph-clock"></i><span class="js-status">Hours below</span></p>
+      <dl class="hours rv" id="hours">
+        <dt>Monday</dt><dd>Closed</dd>
+        <dt>Tuesday</dt><dd>12pm to 9pm</dd>
+        <dt>Wednesday</dt><dd>12pm to 9pm</dd>
+        <dt>Thursday</dt><dd>12pm to 9pm</dd>
+        <dt>Friday</dt><dd>12pm to 10pm</dd>
+        <dt>Saturday</dt><dd>4pm to 10pm</dd>
+        <dt>Sunday</dt><dd>4pm to 9pm</dd>
+      </dl>
+      <div class="find rv">
+        <b><i class="ph-light ph-signpost"></i>Easy to miss from Dundas</b>
+        <p>We're tucked inside the SmartCentres plaza at Trafalgar and Dundas. Set your map to 261 Oak Walk Drive and look for Unit 8. Park right in the plaza lot.</p>
+      </div>
+      <div class="contact rv">
+        <a href="tel:+19052575881"><i class="ph-light ph-phone"></i>905-257-5881</a>
+        <a href="mailto:reservations@ritorno.ca"><i class="ph-light ph-envelope-simple"></i>reservations@ritorno.ca</a>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Ritorno%2C%20261%20Oak%20Walk%20Dr%20Unit%208%2C%20Oakville%2C%20ON%20L6H%206M3" target="_blank" rel="noopener"><i class="ph-light ph-map-pin"></i>261 Oak Walk Drive, Unit 8, Oakville, ON L6H 6M3</a>
+      </div>
+      <div class="row rv">
+        <a class="btn" href="tel:+19052575881">Call to book <span class="ic"><i class="ph-light ph-phone"></i></span></a>
+        <a class="btn quiet" href="https://www.google.com/maps/dir/?api=1&amp;destination=Ritorno%2C%20261%20Oak%20Walk%20Dr%20Unit%208%2C%20Oakville%2C%20ON%20L6H%206M3" target="_blank" rel="noopener">Get directions <span class="ic"><i class="ph-light ph-navigation-arrow"></i></span></a>
+      </div>
+    </div>
+    <figure class="frame f-walnut map-frame hang">
+      <iframe title="Map to Ritorno, 261 Oak Walk Drive, Unit 8, Oakville" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Ritorno%2C%20261%20Oak%20Walk%20Dr%20Unit%208%2C%20Oakville%2C%20ON%20L6H%206M3&amp;z=15&amp;output=embed"></iframe>
+    </figure>
+  </div>
+</section>
+</main>
+
+<dialog class="lightbox" id="lightbox" aria-labelledby="lbName">
+  <img id="lbImg" width="640" height="640" alt="">
+  <div class="lb-text">
+    <h3 id="lbName"></h3>
+    <b id="lbPrice"></b>
+    <p id="lbDesc"></p>
+    <button class="btn quiet sm" type="button" id="lbClose">Close <span class="ic"><i class="ph-light ph-x"></i></span></button>
+  </div>
+</dialog>
+
+<!-- ===== FOOTER ===== -->
+<footer class="foot">
+  <div class="wainscot" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="#top" aria-label="Ritorno, back to top"><img class="logo-ink" src="assets/logo-ink.png" alt="Ritorno" width="560" height="210"><img class="logo-cream" src="assets/logo-cream.png" alt="Ritorno" width="560" height="210"></a>
+        <p class="motto">family is whoever sits around the table.</p>
+        <div class="social">
+          <a href="https://www.instagram.com/ritornooakville/" target="_blank" rel="noopener" aria-label="Ritorno on Instagram"><i class="ph-light ph-instagram-logo"></i></a>
+          <a href="https://www.facebook.com/RitornoOakville/" target="_blank" rel="noopener" aria-label="Ritorno on Facebook"><i class="ph-light ph-facebook-logo"></i></a>
+          <a href="https://ca.linkedin.com/company/ritorno-oakville" target="_blank" rel="noopener" aria-label="Ritorno on LinkedIn"><i class="ph-light ph-linkedin-logo"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3>At the table</h3>
+        <nav aria-label="Footer">
+          <a href="#menu">Menu</a>
+          <a href="#nonna-wall">Nonna Wall</a>
+          <a href="#story">Our story</a>
+          <a href="#events">Private events</a>
+        </nav>
+      </div>
+      <div>
+        <h3>Find us</h3>
+        <div class="lines">
+          <a href="tel:+19052575881"><i class="ph-light ph-phone"></i>905-257-5881</a>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Ritorno%2C%20261%20Oak%20Walk%20Dr%20Unit%208%2C%20Oakville%2C%20ON%20L6H%206M3" target="_blank" rel="noopener"><i class="ph-light ph-map-pin"></i>261 Oak Walk Drive, Unit 8</a>
+          <a href="https://order.ritorno.ca/" target="_blank" rel="noopener"><i class="ph-light ph-shopping-bag"></i>Order pickup</a>
+          <a href="mailto:julia@ritorno.ca"><i class="ph-light ph-envelope-simple"></i>julia@ritorno.ca</a>
+        </div>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© <span id="yr">2026</span> Ritorno, Oakville. Ritorno is a nut-free restaurant.</span>
+      <span>Sample concept site. Photos from ritorno.ca and @ritornooakville. Frames: The Met, Robert Lehman Collection. Travertine: Andrei Pripasu. Plaster: Birch Landing Home. All CC0.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ================= NAV ================= */
+const nav = $('#nav');
+new IntersectionObserver(([e]) => nav.classList.toggle('solid', !e.isIntersecting), {rootMargin: '-90px 0px 0px 0px'}).observe($('.hero h1'));
+const drawer = $('#drawer'), burger = $('#burger');
+const setDrawer = open => {
+  drawer.classList.toggle('open', open); drawer.setAttribute('aria-hidden', !open); drawer.inert = !open;
+  burger.setAttribute('aria-expanded', open); document.body.style.overflow = open ? 'hidden' : '';
+  if (open) $('#closeDrawer').focus(); else burger.focus({preventScroll: true});
+};
+burger.addEventListener('click', () => setDrawer(true));
+$('#closeDrawer').addEventListener('click', () => setDrawer(false));
+$$('#drawer nav a').forEach(a => a.addEventListener('click', () => setDrawer(false)));
+addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('open')) setDrawer(false); });
+
+/* ================= REVEALS: frames get hung as they come into view ================= */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold: .15});
+$$('.rv, .hang').forEach(el => io.observe(el));
+
+/* ================= HOURS =================
+   Always computed in Oakville time, whatever the viewer's clock says.
+   [open, close] in 24h, Sun..Sat. Monday is closed. */
+const HOURS = [[16, 21], null, [12, 21], [12, 21], [12, 21], [12, 22], [16, 22]];
+const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const ampm = h => h === 12 ? '12pm' : h > 12 ? `${h - 12}pm` : `${h}am`;
+function oakvilleNow(d = new Date()) {
+  const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', {timeZone: 'America/Toronto', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23'}).formatToParts(d).map(x => [x.type, x.value]));
+  return {day: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(p.weekday), h: +p.hour + +p.minute / 60};
+}
+function hoursStatus(day, h) {
+  const t = HOURS[day];
+  if (t && h >= t[0] && h < t[1]) return {open: true, text: `Open now until ${ampm(t[1])}`};
+  if (t && h < t[0]) return {open: false, text: `Opens today at ${ampm(t[0])}`};
+  for (let k = 1; k <= 7; k++) {
+    const n = (day + k) % 7;
+    if (HOURS[n]) return {open: false, text: `Opens ${k === 1 ? 'tomorrow' : DAYS[n]} at ${ampm(HOURS[n][0])}`};
+  }
+}
+const now = oakvilleNow();
+const st = hoursStatus(now.day, now.h);
+$$('.js-status').forEach(el => { el.innerHTML = st.open ? st.text.replace('Open now', '<b>Open now</b>') : st.text; });
+$$('#hours dt')[(now.day + 6) % 7].classList.add('today');
+$('#yr').textContent = new Date().getFullYear();
+
+/* ================= MENU TABS ================= */
+const tabsEl = $('#tabs'), tabs = $$('[role=tab]', tabsEl);
+let current = tabs.find(t => t.getAttribute('aria-selected') === 'true');
+// the ink block follows the selected cell, wherever the grid has wrapped it
+const placeInk = () => {
+  const t = current;
+  tabsEl.style.setProperty('--tx', t.offsetLeft + 'px'); tabsEl.style.setProperty('--ty', t.offsetTop + 'px');
+  tabsEl.style.setProperty('--tw', t.offsetWidth + 'px'); tabsEl.style.setProperty('--th', t.offsetHeight + 'px');
+};
+new ResizeObserver(placeInk).observe(tabsEl);
+placeInk(); requestAnimationFrame(() => tabsEl.classList.add('ready'));
+function showTab(t, focus) {
+  current = t;
+  tabs.forEach(x => { const on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; $('#' + x.getAttribute('aria-controls')).hidden = !on; });
+  $$('.dish', $('#' + t.getAttribute('aria-controls'))).forEach((d, i) => { d.style.setProperty('--i', i); d.style.animation = 'none'; void d.offsetWidth; d.style.animation = ''; });
+  placeInk(); syncShow();
+  if (focus) t.focus();
+}
+tabs.forEach(t => t.addEventListener('click', () => showTab(t)));
+$('#tabs').addEventListener('keydown', e => {
+  const i = tabs.indexOf(document.activeElement); if (i < 0) return;
+  const cols = getComputedStyle(tabsEl).gridTemplateColumns.split(' ').length;
+  const k = {ArrowRight: 1, ArrowLeft: -1, ArrowDown: cols, ArrowUp: -cols}[e.key]; if (!k) return;
+  e.preventDefault(); showTab(tabs[(i + k + tabs.length) % tabs.length], true);
+});
+
+/* ================= MENU PHOTOS =================
+   Pointing at a dish puts it in the large frame; a tap opens the photo full size. */
+const body = $('#menuBody'), showImg = $('#showImg'), showName = $('#showName'), showPrice = $('#showPrice');
+const lb = $('#lightbox');
+const info = li => ({ img: li.dataset.img, alt: li.dataset.alt, name: $('h3', li).textContent, price: $('b', li).textContent, desc: $('p', li).textContent });
+function feature(li) {
+  if (!li || !li.dataset.img) return;
+  $$('.dish.on').forEach(d => d.classList.remove('on')); li.classList.add('on');
+  const d = info(li);
+  if (showImg.getAttribute('src') !== d.img) { showImg.src = d.img; showImg.classList.remove('swap'); void showImg.offsetWidth; showImg.classList.add('swap'); }
+  showImg.alt = d.alt; showName.textContent = d.name; showPrice.textContent = d.price;
+}
+function syncShow() {
+  const panel = $('.panel:not([hidden])');
+  const first = $('.dish[data-img]', panel);
+  body.classList.toggle('wide', !first);
+  feature(first);
+}
+body.addEventListener('pointerover', e => feature(e.target.closest('.dish[data-img]')));
+body.addEventListener('focusin', e => feature(e.target.closest('.dish[data-img]')));
+body.addEventListener('click', e => {
+  const b = e.target.closest('.thumb'); if (!b) return;
+  const d = info(b.closest('.dish'));
+  $('#lbImg').src = d.img; $('#lbImg').alt = d.alt; $('#lbName').textContent = d.name; $('#lbPrice').textContent = d.price; $('#lbDesc').textContent = d.desc;
+  lb.showModal();
+});
+$('#lbClose').addEventListener('click', () => lb.close());
+lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+syncShow();
+
+/* ================= VOICES: real guest reviews, first names only ================= */
+const QUOTES = [
+  ['Kim H.', "It's nice to see a neighbourhood family owned business thriving.", ''],
+  ['Sadiya', "The food is delicious, fresh, generous portions and fairly priced. The owner came to talk to us.", ''],
+  ['Jessica', "From start to finish, I had a wonderful experience interacting with the Ritorno team, especially Julee.", "after her son's baptism here"],
+  ['Ryan', "Gem of an Italian restaurant near the heart of Trafalgar Dundas in Oakville, where if you blink you'll miss it going eastbound on Dundas.", ''],
+];
+const who = $('#who'), quote = $('#quote');
+const esc = s => s.replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+who.innerHTML = QUOTES.map(([n], i) => `<button role="tab" aria-selected="${i === 0}" data-q="${i}">${esc(n)}</button>`).join('');
+let qi = 0, qTimer = 0;
+function showQuote(i) {
+  qi = i; const [n, q, role] = QUOTES[i];
+  quote.innerHTML = `<p>“${esc(q)}”</p><cite><b>${esc(n)}</b>${role ? ', ' + esc(role) : ''}</cite>`;
+  $$('button', who).forEach((b, k) => b.setAttribute('aria-selected', k === i));
+}
+const auto = () => { clearInterval(qTimer); if (!reduce) qTimer = setInterval(() => showQuote((qi + 1) % QUOTES.length), 8000); };
+who.addEventListener('click', e => { const b = e.target.closest('button'); if (b) { showQuote(+b.dataset.q); auto(); } });
+$('.voices').addEventListener('pointerenter', () => clearInterval(qTimer));
+$('.voices').addEventListener('pointerleave', auto);
+$('.voices').addEventListener('focusin', () => clearInterval(qTimer));
+showQuote(0); auto();
+</script>
+</body>
+</html>
